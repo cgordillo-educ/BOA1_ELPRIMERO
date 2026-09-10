@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colegio de Orientación Artística</title>
+<style>
+:root{
+  --azul:#101d32; --azul2:#1d3557; --ocre:#d9a441;
+  --crema:#f5ead3; --rojo:#8f3f32; --blanco:#fff;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--crema);color:#202020}
+header{
+  min-height:78vh; color:white; position:relative; display:flex; align-items:center;
+  background:linear-gradient(90deg,rgba(8,18,32,.92),rgba(8,18,32,.62),rgba(8,18,32,.78)),
+             url("logo-artistico.png") center/cover no-repeat;
+}
+.hero{max-width:1100px;margin:auto;padding:70px 25px;width:100%}
+.badge{display:inline-block;padding:8px 15px;border:1px solid #e2bd69;border-radius:30px;color:#f5d58b}
+h1{font-size:clamp(2.4rem,6vw,5rem);margin:18px 0 10px;max-width:750px}
+.hero p{font-size:1.2rem;max-width:650px;line-height:1.6}
+nav{
+  position:sticky;top:0;z-index:20;background:rgba(16,29,50,.97);
+  display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:10px
+}
+nav a{color:white;text-decoration:none;padding:11px 14px;border-radius:7px}
+nav a:hover{background:var(--ocre);color:#111}
+section{max-width:1100px;margin:auto;padding:70px 25px}
+section h2{color:var(--azul);font-size:2.1rem;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:white;padding:25px;border-radius:14px;box-shadow:0 5px 18px #0001;border-top:5px solid var(--ocre)}
+.card h3{color:var(--rojo)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.gallery div{height:190px;border-radius:12px;display:flex;align-items:end;padding:18px;color:white;
+background:linear-gradient(transparent,#000b),url("logo-artistico.png") center/cover}
+.song{background:var(--azul);color:white;border-radius:14px;padding:25px;margin-bottom:15px}
+.song button{border:0;padding:10px 15px;border-radius:20px;background:var(--ocre);cursor:pointer}
+footer{background:var(--azul);color:white;text-align:center;padding:30px}
+@media(max-width:600px){nav a{font-size:.85rem;padding:8px}.hero{padding:50px 20px}}
+</style>
+</head>
+<body>
+
+<header id="inicio">
+  <div class="hero">
+    <span class="badge">COLEGIO CON ORIENTACIÓN ARTÍSTICA</span>
+    <h1>Arte, música y creatividad</h1>
+    <p>Un espacio educativo donde aprender, crear y expresarse a través de diferentes lenguajes artísticos.</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#quienes">Quiénes somos</a>
+  <a href="#historia">Historia</a>
+  <a href="#canciones">Canciones</a>
+  <a href="#imagenes">Imágenes</a>
+  <a href="#mision">Misión</a>
+  <a href="#vision">Visión</a>
+  <a href="#valores">Valores</a>
+</nav>
+
+<section id="quienes">
+<h2>Quiénes somos</h2>
+<p>Somos una comunidad educativa que integra la formación general con la sensibilidad artística. Promovemos la música, las artes visuales, la expresión corporal y la creatividad como herramientas para aprender y participar en la cultura.</p>
+<div class="grid">
+<div class="card"><h3>Estudiantes</h3><p>Protagonistas de experiencias de creación, investigación y expresión.</p></div>
+<div class="card"><h3>Docentes</h3><p>Acompañamos los procesos de aprendizaje y estimulamos la exploración artística.</p></div>
+<div class="card"><h3>Comunidad</h3><p>Construimos proyectos que vinculan la escuela con su entorno cultural.</p></div>
+</div>
+</section>
+
+<section id="historia">
+<h2>Historia</h2>
+<p>Nuestra institución nació con el propósito de ofrecer una educación que valore tanto el conocimiento como la capacidad de crear. Con el paso del tiempo, la música y las artes se incorporaron como ejes centrales de proyectos escolares, muestras, conciertos y producciones interdisciplinarias.</p>
+</section>
+
+<section id="canciones">
+<h2>Canciones</h2>
+<div class="song"><h3>🎵 Producciones musicales</h3><p>Espacio destinado a canciones y producciones realizadas por estudiantes.</p><button onclick="alert('Aquí podés colocar el enlace a una canción o audio del colegio.')">Escuchar</button></div>
+<div class="song"><h3>🎶 Canciones de nuestra comunidad</h3><p>Repertorio escolar, composiciones originales y proyectos musicales.</p><button onclick="alert('Podés reemplazar este botón por un enlace a un archivo MP3 o plataforma musical.')">Escuchar</button></div>
+</section>
+
+<section id="imagenes">
+<h2>Imágenes</h2>
+<div class="gallery">
+<div><strong>Artes visuales</strong></div>
+<div><strong>Música</strong></div>
+<div><strong>Producciones artísticas</strong></div>
+<div><strong>Proyectos escolares</strong></div>
+</div>
+</section>
+
+<section id="mision">
+<h2>Misión</h2>
+<p>Brindar una educación integral que favorezca el desarrollo de conocimientos, habilidades artísticas, pensamiento crítico, creatividad y trabajo colaborativo.</p>
+</section>
+
+<section id="vision">
+<h2>Visión</h2>
+<p>Ser una comunidad educativa reconocida por promover jóvenes creativos, sensibles, participativos y capaces de utilizar el arte como forma de expresión y transformación de su realidad.</p>
+</section>
+
+<section id="valores">
+<h2>Valores</h2>
+<div class="grid">
+<div class="card"><h3>Creatividad</h3><p>Imaginar nuevas ideas y formas de expresión.</p></div>
+<div class="card"><h3>Respeto</h3><p>Valorar las producciones y opiniones de los demás.</p></div>
+<div class="card"><h3>Inclusión</h3><p>Construir un espacio donde todas las voces puedan expresarse.</p></div>
+<div class="card"><h3>Cooperación</h3><p>Crear y aprender junto a otros.</p></div>
+</div>
+</section>
+
+<footer>
+  <strong>Colegio de Orientación Artística</strong><br>
+  Arte · Música · Creatividad · Educación
+</footer>
+
+</body>
+</html>
