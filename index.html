@@ -4,49 +4,499 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Colegio de Orientación Artística</title>
+
 <style>
 :root{
-  --azul:#101d32; --azul2:#1d3557; --ocre:#d9a441;
-  --crema:#f5ead3; --rojo:#8f3f32; --blanco:#fff;
+  --morado:#60478a;
+  --morado-oscuro:#24143f;
+  --morado-profundo:#39245f;
+  --lila:#b77be5;
+  --lila-claro:#d5a7f4;
+  --rosa:#dca6ff;
+  --blanco:#fff8ff;
+  --negro:#21152f;
 }
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--crema);color:#202020}
+
+*{
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:"Comic Sans MS","Trebuchet MS",cursive;
+  background:var(--morado);
+  color:var(--blanco);
+  line-height:1.6;
+}
+
+/* ===== ENCABEZADO ===== */
+
 header{
-  min-height:78vh; color:white; position:relative; display:flex; align-items:center;
-  background:linear-gradient(90deg,rgba(8,18,32,.92),rgba(8,18,32,.62),rgba(8,18,32,.78)),
-             url("logo-artistico.png") center/cover no-repeat;
+  min-height:78vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(210,160,255,.22),transparent 20%),
+    radial-gradient(circle at 85% 15%,rgba(190,120,255,.20),transparent 24%),
+    var(--morado);
 }
-.hero{max-width:1100px;margin:auto;padding:70px 25px;width:100%}
-.badge{display:inline-block;padding:8px 15px;border:1px solid #e2bd69;border-radius:30px;color:#f5d58b}
-h1{font-size:clamp(2.4rem,6vw,5rem);margin:18px 0 10px;max-width:750px}
-.hero p{font-size:1.2rem;max-width:650px;line-height:1.6}
+
+header::before,
+header::after{
+  content:"";
+  position:absolute;
+  border:3px solid rgba(218,171,255,.45);
+  border-radius:50%;
+  transform:rotate(-8deg);
+  pointer-events:none;
+}
+
+header::before{
+  width:420px;
+  height:160px;
+  left:-90px;
+  top:55px;
+}
+
+header::after{
+  width:360px;
+  height:130px;
+  right:-70px;
+  bottom:55px;
+}
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 25px;
+  width:100%;
+  position:relative;
+  z-index:2;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 20px;
+  color:var(--negro);
+  background:var(--lila-claro);
+  border:3px solid var(--morado-oscuro);
+  border-radius:45% 55% 50% 45%;
+  transform:rotate(-2deg);
+  font-weight:bold;
+  box-shadow:5px 5px 0 rgba(36,20,63,.45);
+}
+
+h1{
+  font-size:clamp(2.8rem,7vw,6rem);
+  line-height:.95;
+  margin:28px 0 20px;
+  max-width:850px;
+  color:#dba8ff;
+  text-shadow:
+    3px 3px 0 var(--morado-oscuro),
+    6px 6px 0 rgba(183,123,229,.45);
+  letter-spacing:1px;
+}
+
+.hero p{
+  font-size:1.25rem;
+  max-width:680px;
+  color:#f2dfff;
+}
+
+
+/* ===== LOGO DESTACADO ===== */
+
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,470px);
+  align-items:center;
+  gap:55px;
+}
+
+.logo-destacado{
+  position:relative;
+  text-align:center;
+  padding:18px 10px 8px;
+  animation:entradaLogo .8s ease-out both;
+}
+
+.logo-marco{
+  position:relative;
+  width:min(100%,440px);
+  margin:auto;
+  padding:15px;
+  border:5px solid var(--lila-claro);
+  border-radius:32px 22px 36px 25px;
+  background:linear-gradient(145deg,rgba(36,20,63,.95),rgba(96,71,138,.82));
+  box-shadow:
+    0 0 0 4px var(--morado-oscuro),
+    10px 10px 0 rgba(36,20,63,.45),
+    0 0 35px rgba(213,167,244,.28);
+  transform:rotate(1deg);
+}
+
+.logo-marco::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:2px dashed rgba(235,207,255,.8);
+  border-radius:25px 18px 29px 20px;
+  pointer-events:none;
+}
+
+.logo-marco img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:390px;
+  object-fit:cover;
+  border-radius:20px 14px 24px 16px;
+  position:relative;
+  z-index:2;
+}
+
+.ornamento{
+  position:absolute;
+  z-index:5;
+  color:var(--lila-claro);
+  font-size:2rem;
+  line-height:1;
+  text-shadow:2px 2px 0 var(--morado-oscuro);
+}
+
+.ornamento-1{top:-25px;left:18px;transform:rotate(-15deg)}
+.ornamento-2{top:-21px;right:30px;transform:rotate(12deg)}
+.ornamento-3{bottom:-24px;right:20px;transform:rotate(-8deg)}
+
+.logo-titulo{
+  display:inline-block;
+  margin-top:24px;
+  padding:7px 22px;
+  background:var(--lila);
+  color:var(--morado-oscuro);
+  border:3px solid var(--morado-oscuro);
+  border-radius:45% 55% 48% 52%;
+  font-size:1.25rem;
+  font-weight:bold;
+  box-shadow:5px 5px 0 rgba(36,20,63,.4);
+  transform:rotate(-1deg);
+}
+
+.logo-subtitulo{
+  margin-top:9px;
+  color:#efd9ff;
+  font-size:.98rem;
+  letter-spacing:.5px;
+}
+
+@keyframes entradaLogo{
+  from{opacity:0;transform:translateY(20px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ===== NAVEGACIÓN ===== */
+
 nav{
-  position:sticky;top:0;z-index:20;background:rgba(16,29,50,.97);
-  display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:10px
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(36,20,63,.97);
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:12px;
+  border-bottom:3px solid var(--lila);
 }
-nav a{color:white;text-decoration:none;padding:11px 14px;border-radius:7px}
-nav a:hover{background:var(--ocre);color:#111}
-section{max-width:1100px;margin:auto;padding:70px 25px}
-section h2{color:var(--azul);font-size:2.1rem;margin-top:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.card{background:white;padding:25px;border-radius:14px;box-shadow:0 5px 18px #0001;border-top:5px solid var(--ocre)}
-.card h3{color:var(--rojo)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.gallery div{height:190px;border-radius:12px;display:flex;align-items:end;padding:18px;color:white;
-background:linear-gradient(transparent,#000b),url("logo-artistico.png") center/cover}
-.song{background:var(--azul);color:white;border-radius:14px;padding:25px;margin-bottom:15px}
-.song button{border:0;padding:10px 15px;border-radius:20px;background:var(--ocre);cursor:pointer}
-footer{background:var(--azul);color:white;text-align:center;padding:30px}
-@media(max-width:600px){nav a{font-size:.85rem;padding:8px}.hero{padding:50px 20px}}
+
+nav a{
+  color:#f6ddff;
+  text-decoration:none;
+  padding:9px 15px;
+  border-radius:18px 13px 20px 14px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+nav a:hover{
+  background:var(--lila);
+  color:var(--morado-oscuro);
+  transform:rotate(-2deg) scale(1.04);
+}
+
+/* ===== SECCIONES ===== */
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 25px;
+}
+
+section h2{
+  display:inline-block;
+  position:relative;
+  color:var(--morado-oscuro);
+  background:var(--lila);
+  padding:8px 25px;
+  margin-top:0;
+  font-size:2.25rem;
+  line-height:1.1;
+  border-radius:45% 55% 48% 52%;
+  transform:rotate(-1deg);
+  box-shadow:6px 6px 0 rgba(36,20,63,.35);
+}
+
+section h2::after{
+  content:"";
+  position:absolute;
+  left:8%;
+  right:5%;
+  bottom:-7px;
+  height:4px;
+  background:var(--morado-oscuro);
+  border-radius:50%;
+  transform:rotate(1deg);
+}
+
+section > p{
+  font-size:1.1rem;
+  color:#f3ddff;
+  max-width:900px;
+}
+
+/* ===== TARJETAS ===== */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:24px;
+  margin-top:30px;
+}
+
+.card{
+  position:relative;
+  background:var(--lila);
+  color:var(--negro);
+  padding:25px;
+  border-radius:18px 25px 20px 28px;
+  border:3px solid var(--morado-oscuro);
+  box-shadow:7px 7px 0 rgba(36,20,63,.4);
+  transform:rotate(-1deg);
+}
+
+.card:nth-child(even){
+  transform:rotate(1.2deg);
+  background:var(--lila-claro);
+}
+
+.card h3{
+  color:var(--morado-oscuro);
+  font-size:1.45rem;
+  margin-top:0;
+}
+
+.card p{
+  margin-bottom:0;
+}
+
+/* ===== CANCIONES ===== */
+
+.song{
+  background:var(--morado-profundo);
+  color:#f7eaff;
+  border:3px solid var(--lila);
+  border-radius:22px 17px 25px 18px;
+  padding:25px;
+  margin:25px 0;
+  box-shadow:7px 7px 0 rgba(36,20,63,.55);
+}
+
+.song h3{
+  color:var(--lila-claro);
+  font-size:1.45rem;
+}
+
+.song button{
+  border:3px solid var(--morado-oscuro);
+  padding:10px 20px;
+  border-radius:45% 55% 48% 52%;
+  background:var(--lila);
+  color:var(--morado-oscuro);
+  font-family:inherit;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:4px 4px 0 var(--morado-oscuro);
+}
+
+.song button:hover{
+  transform:rotate(-2deg) translateY(-2px);
+  background:var(--lila-claro);
+}
+
+/* ===== GALERÍA ===== */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.gallery div{
+  min-height:190px;
+  border:4px solid var(--morado-oscuro);
+  border-radius:22px 16px 25px 18px;
+  display:flex;
+  align-items:flex-end;
+  padding:18px;
+  color:white;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(transparent 30%,rgba(36,20,63,.9)),
+    url("logo-artistico.png") center/cover no-repeat;
+  box-shadow:7px 7px 0 rgba(36,20,63,.45);
+}
+
+.gallery strong{
+  position:relative;
+  z-index:2;
+  font-size:1.25rem;
+  color:#f4dfff;
+}
+
+/* ===== DESTACADOS ===== */
+
+#quienes,
+#historia,
+#canciones,
+#imagenes,
+#mision,
+#vision,
+#valores{
+  border-bottom:2px dashed rgba(215,165,250,.55);
+}
+
+#mision p,
+#vision p{
+  background:var(--lila);
+  color:var(--negro);
+  padding:25px;
+  border:3px solid var(--morado-oscuro);
+  border-radius:20px 15px 24px 18px;
+  box-shadow:7px 7px 0 rgba(36,20,63,.4);
+}
+
+/* ===== DECORACIÓN ===== */
+
+section::before{
+  content:"✦";
+  display:block;
+  color:var(--lila-claro);
+  font-size:2rem;
+  margin-bottom:5px;
+  transform:rotate(-12deg);
+}
+
+section:nth-of-type(even)::before{
+  content:"♪";
+  transform:rotate(10deg);
+}
+
+/* ===== PIE ===== */
+
+footer{
+  background:var(--morado-oscuro);
+  color:#f1d8ff;
+  text-align:center;
+  padding:35px 20px;
+  border-top:4px solid var(--lila);
+}
+
+footer strong{
+  color:var(--lila-claro);
+  font-size:1.3rem;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:850px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:35px;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .logo-destacado{
+    max-width:520px;
+    width:100%;
+    margin:auto;
+  }
+}
+
+@media(max-width:600px){
+  nav a{
+    font-size:.82rem;
+    padding:7px 10px;
+  }
+
+  .hero{
+    padding:50px 20px;
+  }
+
+  h1{
+    font-size:3rem;
+  }
+
+  .logo-marco{
+    padding:10px;
+  }
+
+  .logo-titulo{
+    font-size:1.05rem;
+  }
+
+  section{
+    padding:55px 20px;
+  }
+
+  section h2{
+    font-size:1.8rem;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header id="inicio">
   <div class="hero">
-    <span class="badge">COLEGIO CON ORIENTACIÓN ARTÍSTICA</span>
+    <span class="badge">¿QUIÉNES SOMOS?</span>
     <h1>Arte, música y creatividad</h1>
-    <p>Un espacio educativo donde aprender, crear y expresarse a través de diferentes lenguajes artísticos.</p>
+    <p>
+      Somos un espacio educativo donde aprender, crear y expresarse
+      a través de diferentes lenguajes artísticos.
+    </p>
+
+    <div class="logo-destacado" aria-label="Logo del Colegio de Orientación Artística">
+      <div class="logo-marco">
+        <span class="ornamento ornamento-1">♪</span>
+        <span class="ornamento ornamento-2">✦</span>
+        <span class="ornamento ornamento-3">♫</span>
+        <img src="logo-artistico.png" alt="Logo artístico del colegio">
+      </div>
+      <div class="logo-titulo">Nuestra identidad artística</div>
+      <div class="logo-subtitulo">Arte · Música · Expresión · Creatividad</div>
+    </div>
   </div>
 </header>
 
@@ -62,30 +512,66 @@ footer{background:var(--azul);color:white;text-align:center;padding:30px}
 
 <section id="quienes">
 <h2>Quiénes somos</h2>
-<p>Somos una comunidad educativa que integra la formación general con la sensibilidad artística. Promovemos la música, las artes visuales, la expresión corporal y la creatividad como herramientas para aprender y participar en la cultura.</p>
+<p>
+Somos una comunidad educativa que integra la formación general con la sensibilidad artística.
+Promovemos la música, las artes visuales, la expresión corporal y la creatividad como
+herramientas para aprender y participar en la cultura.
+</p>
+
 <div class="grid">
-<div class="card"><h3>Estudiantes</h3><p>Protagonistas de experiencias de creación, investigación y expresión.</p></div>
-<div class="card"><h3>Docentes</h3><p>Acompañamos los procesos de aprendizaje y estimulamos la exploración artística.</p></div>
-<div class="card"><h3>Comunidad</h3><p>Construimos proyectos que vinculan la escuela con su entorno cultural.</p></div>
+<div class="card">
+<h3>Estudiantes</h3>
+<p>Protagonistas de experiencias de creación, investigación y expresión.</p>
+</div>
+
+<div class="card">
+<h3>Docentes</h3>
+<p>Acompañamos los procesos de aprendizaje y estimulamos la exploración artística.</p>
+</div>
+
+<div class="card">
+<h3>Comunidad</h3>
+<p>Construimos proyectos que vinculan la escuela con su entorno cultural.</p>
+</div>
 </div>
 </section>
 
 <section id="historia">
 <h2>Historia</h2>
-<p>Nuestra institución nació con el propósito de ofrecer una educación que valore tanto el conocimiento como la capacidad de crear. Con el paso del tiempo, la música y las artes se incorporaron como ejes centrales de proyectos escolares, muestras, conciertos y producciones interdisciplinarias.</p>
+<p>
+Nuestra institución nació con el propósito de ofrecer una educación que valore tanto
+el conocimiento como la capacidad de crear. Con el paso del tiempo, la música y las
+artes se incorporaron como ejes centrales de proyectos escolares, muestras, conciertos
+y producciones interdisciplinarias.
+</p>
 </section>
 
 <section id="canciones">
 <h2>Canciones</h2>
-<div class="song"><h3>🎵 Producciones musicales</h3><p>Espacio destinado a canciones y producciones realizadas por estudiantes.</p><button onclick="alert('Aquí podés colocar el enlace a una canción o audio del colegio.')">Escuchar</button></div>
-<div class="song"><h3>🎶 Canciones de nuestra comunidad</h3><p>Repertorio escolar, composiciones originales y proyectos musicales.</p><button onclick="alert('Podés reemplazar este botón por un enlace a un archivo MP3 o plataforma musical.')">Escuchar</button></div>
+
+<div class="song">
+<h3>🎵 Producciones musicales</h3>
+<p>Espacio destinado a canciones y producciones realizadas por estudiantes.</p>
+<button onclick="window.open('https://drive.google.com/file/d/1bwr4wv9PjgQDokwAXi_y5WFkbgoytJih/view?usp=sharing','_blank')">
+Escuchar
+</button>
+</div>
+
+<div class="song">
+<h3>🎶 Canciones de nuestra comunidad</h3>
+<p>Repertorio escolar, composiciones originales y proyectos musicales.</p>
+<button onclick="alert('Podés reemplazar este botón por un enlace a un archivo MP3 o plataforma musical.')">
+Escuchar
+</button>
+</div>
 </section>
 
 <section id="imagenes">
 <h2>Imágenes</h2>
+
 <div class="gallery">
 <div><strong>Artes visuales</strong></div>
-<div><strong>Música</strong></div>
+<div><strong>🎵 Música</strong></div>
 <div><strong>Producciones artísticas</strong></div>
 <div><strong>Proyectos escolares</strong></div>
 </div>
@@ -93,27 +579,50 @@ footer{background:var(--azul);color:white;text-align:center;padding:30px}
 
 <section id="mision">
 <h2>Misión</h2>
-<p>Brindar una educación integral que favorezca el desarrollo de conocimientos, habilidades artísticas, pensamiento crítico, creatividad y trabajo colaborativo.</p>
+<p>
+Brindar una educación integral que favorezca el desarrollo de conocimientos,
+habilidades artísticas, pensamiento crítico, creatividad y trabajo colaborativo.
+</p>
 </section>
 
 <section id="vision">
 <h2>Visión</h2>
-<p>Ser una comunidad educativa reconocida por promover jóvenes creativos, sensibles, participativos y capaces de utilizar el arte como forma de expresión y transformación de su realidad.</p>
+<p>
+Ser una comunidad educativa reconocida por promover jóvenes creativos, sensibles,
+participativos y capaces de utilizar el arte como forma de expresión y transformación
+de su realidad.
+</p>
 </section>
 
 <section id="valores">
 <h2>Valores</h2>
+
 <div class="grid">
-<div class="card"><h3>Creatividad</h3><p>Imaginar nuevas ideas y formas de expresión.</p></div>
-<div class="card"><h3>Respeto</h3><p>Valorar las producciones y opiniones de los demás.</p></div>
-<div class="card"><h3>Inclusión</h3><p>Construir un espacio donde todas las voces puedan expresarse.</p></div>
-<div class="card"><h3>Cooperación</h3><p>Crear y aprender junto a otros.</p></div>
+<div class="card">
+<h3>Creatividad</h3>
+<p>Imaginar nuevas ideas y formas de expresión.</p>
+</div>
+
+<div class="card">
+<h3>Respeto</h3>
+<p>Valorar las producciones y opiniones de los demás.</p>
+</div>
+
+<div class="card">
+<h3>Inclusión</h3>
+<p>Construir un espacio donde todas las voces puedan expresarse.</p>
+</div>
+
+<div class="card">
+<h3>Cooperación</h3>
+<p>Crear y aprender junto a otros.</p>
+</div>
 </div>
 </section>
 
 <footer>
-  <strong>Colegio de Orientación Artística</strong><br>
-  Arte · Música · Creatividad · Educación
+<strong>Colegio de Orientación Artística</strong><br>
+Arte · Música · Creatividad · Educación
 </footer>
 
 </body>
